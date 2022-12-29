@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  belongs_to :departments
+  belongs_to :department
   has_many :student_courses, dependent: :destroy
   has_many :courses, through: :student_courses
   # Include default devise modules. Others available are:
