@@ -1,0 +1,2 @@
+class DepartmentStaff < ApplicationRecord
+end
