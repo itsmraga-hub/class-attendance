@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :courses
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
     registrations: 'staffs/registrations',
