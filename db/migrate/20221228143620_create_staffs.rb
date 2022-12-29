@@ -5,6 +5,7 @@ class CreateStaffs < ActiveRecord::Migration[7.0]
       t.integer :national_id
       t.text :staff_registration_number
       t.integer :phone_number
+      t.role :text, default: 'staff'
 
       t.timestamps
     end

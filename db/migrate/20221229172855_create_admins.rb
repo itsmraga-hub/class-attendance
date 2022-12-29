@@ -5,6 +5,7 @@ class CreateAdmins < ActiveRecord::Migration[7.0]
       t.admin_id :integer
       t.national_id :integer
       t.staff_id :integer
+      t.role :text, default: 'admin'
 
       t.timestamps
     end
