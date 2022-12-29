@@ -11,8 +11,23 @@
   </head>
 
   <body>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <% if student_signed_in? %>
+        <%= link_to 'Sign Out', destroy_student_session_path, method: :delete %> |
+      <% elsif !staff_signed_in? %>
+        <%= link_to "Sign In as Student", new_student_session_path %> |
+      <% end %>
+
+      <% if staff_signed_in? %>
+        <%= link_to 'Sign Out as Staff', destroy_staff_session_path, method: :delete %> |
+      <% elsif !student_signed_in? %>
+        <%= link_to "Sign In as Staff", new_staff_session_path %> |
+      <% end %>
+    </header>
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
   </body>
 </html>
