@@ -1,20 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, path: 'admin', controllers: {
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations',
+    confirmations: 'admins/confirmations',
+    mailer: 'admins/mailers',
+    passwords: 'admins/passwords'
+  }
   resources :departments
   resources :courses
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
     registrations: 'staffs/registrations',
-    # confirmations: 'staffs/confirmations',
-    # mailer: 'staffs/mailers',
-    # passwords: 'staffs/passwords'
+    confirmations: 'staffs/confirmations',
+    mailer: 'staffs/mailers',
+    passwords: 'staffs/passwords'
   }
   devise_for :students, path: 'students', controllers: {
     sessions: 'students/sessions',
     registrations: 'students/registrations',
-    # confirmations: 'students/confirmations',
-    # mailer: 'students/mailers',
-    # passwords: 'students/passwords'
+    confirmations: 'students/confirmations',
+    mailer: 'students/mailers',
+    passwords: 'students/passwords'
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
