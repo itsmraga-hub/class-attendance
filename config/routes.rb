@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :admins, path: 'admin', controllers: {
+  devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
     confirmations: 'admins/confirmations',
     mailer: 'admins/mailers',
     passwords: 'admins/passwords'
   }
-  resources :departments
-  resources :courses
+
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
     registrations: 'staffs/registrations',
@@ -22,8 +21,26 @@ Rails.application.routes.draw do
     mailer: 'students/mailers',
     passwords: 'students/passwords'
   }
+
+  authenticated :admin do
+    # root 'courses#index'
+    # resources :departments
+    # resources :courses
+    # root '', as: :authenticated_root
+  end
+
+  authenticated :student do
+    # root '', as: :authenticated_root
+    # root 'courses#index'
+  end
+
+  authenticated :staff do
+    # root 'courses#index'
+    # root '', as: :authenticated_root
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'courses#index'
 end
