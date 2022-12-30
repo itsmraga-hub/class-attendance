@@ -5,5 +5,5 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_staff!
   before_action :authenticate_student!
 
-  before_action :update_allowed_parameters, if: :devise_controller?
+  # before_action :update_allowed_parameters, if: :devise_controller?
 end
