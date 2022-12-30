@@ -6,6 +6,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.text :registration_number
       t.string :location
       t.integer :phone_number
+      t.text :role, default: 'student'
 
       t.timestamps
     end
