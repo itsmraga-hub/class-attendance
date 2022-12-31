@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   # before_action :authenticate_admin! || :authenticate_staff! || :authenticate_student!
   before_action :authenticate!
+  before_action :authenticate_student!
 
   def after_sign_in_path_for(resource)
   #   if current_user.has_role?(:admin)
@@ -13,15 +14,19 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  protected
-
   def authenticate!
-    if current_admin 
-        :authenticate_admin!
-    elsif current_staff
-        :authenticate_staff!
-    elsif current_student
-        :authenticate_student!
+    # p "User: #{@current_user}"
+    # if current_admin.role == 'admin' 
+    #   :authenticate_admin!
+    # elsif current_staff.role == 'staff'
+    #   :authenticate_staff!
+    # elsif current_student.role == 'student'
+    #   :authenticate_student!
+    # end
+    if @current_user == current_admin 
+      :authenticate_admin!
+    elsif @current_user == current_staff
+      :authenticate_staff!
     end
   end
 
