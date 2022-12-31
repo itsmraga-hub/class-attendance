@@ -11,17 +11,17 @@
   </head>
 
   <body>
+    <%# render 'layouts/header' %>
     <header>
-      <% if student_signed_in? %>
-        <%= link_to 'Sign Out', destroy_student_session_path, method: :delete %> |
-      <% elsif !staff_signed_in? %>
-        <%= link_to "Sign In as Student", new_student_session_path %> |
-      <% end %>
-
-      <% if staff_signed_in? %>
-        <%= link_to 'Sign Out as Staff', destroy_staff_session_path, method: :delete %> |
-      <% elsif !student_signed_in? %>
-        <%= link_to "Sign In as Staff", new_staff_session_path %> |
+      <% if current_student %>
+        <h2>Student: <%= current_student.name %></h2>
+        <%= button_to 'Sign Out as Student', destroy_student_session_path, method: :delete %>
+      <% elsif current_staff %>
+      <h2>Staff: <%= current_staff.name if current_staff %></h2>
+      <%= button_to 'Sign Out as Staff', destroy_staff_session_path, method: :delete %>
+      <% elsif current_admin %>
+      <h2>Admin: <%= current_admin.name if current_admin %></h2>
+      <%= button_to 'Sign Out as Admin', destroy_admin_session_path, method: :delete %>
       <% end %>
     </header>
     <main>
