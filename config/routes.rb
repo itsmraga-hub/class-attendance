@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'dashboards/admin'
+  get 'dashboards/staff'
+  get 'dashboards/student'
   devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
@@ -35,28 +38,22 @@ Rails.application.routes.draw do
   # resources :courses
 
   authenticated :admin do
-    # root 'courses#index'
-    resources :departments
-    resources :courses
-    # root '', as: :authenticated_root
+    resources :dashboards
+    # get 'dashboards#admin'
   end
 
   authenticated :student do
-    # root '', as: :authenticated_root
-    resources :departments
-    resources :courses
-    # root 'courses#index'
+    resources :dashboards, only: [:student]
+    # get 'dashboards#student'
   end
 
   authenticated :staff do
-    # root 'courses#index'
-    resources :departments
-    resources :courses
-    # root '', as: :authenticated_root
+    resources :dashboards, only: [:staff, :student]
+    # get 'dashboards#staff'
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  # root 'courses#index'
+  resources :departments
+  resources :courses
+
+  root 'dashboards#index'
 end
