@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   }
 
   devise_scope :staffs do
-    get 'staffs/sign_in'
+    # get 'staffs/sign_in'
   end
   devise_scope :admins do
-    get 'admins/sign_in'
+    # get 'admins/sign_in'
   end
   devise_scope :students do
-    get 'students/sign_in'
+    # get 'students/sign_in'
   end
 
   devise_for :staffs, path: 'staffs', controllers: {
