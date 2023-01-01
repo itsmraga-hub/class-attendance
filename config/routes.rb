@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'dashboards/admin'
-  get 'dashboards/staff'
-  get 'dashboards/student'
+  get 'staff_dashboard/index', as: :authenticated_staff_dashboard
+  get 'student_dashboard/index', as: :authenticated_student_dashboard
+  get 'admin_dashboard/index', as: :authenticated_admin_dashboard
   devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
@@ -10,15 +10,9 @@ Rails.application.routes.draw do
     # passwords: 'admins/passwords'
   }
 
-  devise_scope :staffs do
+  # devise_scope :staffs do
     # get 'staffs/sign_in'
-  end
-  devise_scope :admins do
-    # get 'admins/sign_in'
-  end
-  devise_scope :students do
-    # get 'students/sign_in'
-  end
+  # end
 
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
