@@ -35,25 +35,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_173518) do
     t.text "name"
     t.text "code"
     t.integer "duration"
+    t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_courses_on_department_id"
   end
 
   create_table "department_staffs", force: :cascade do |t|
-    t.bigint "departments_id", null: false
-    t.bigint "staffs_id", null: false
+    t.bigint "department_id"
+    t.bigint "staff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departments_id"], name: "index_department_staffs_on_departments_id"
-    t.index ["staffs_id"], name: "index_department_staffs_on_staffs_id"
+    t.index ["department_id"], name: "index_department_staffs_on_department_id"
+    t.index ["staff_id"], name: "index_department_staffs_on_staff_id"
   end
 
   create_table "departments", force: :cascade do |t|
     t.text "name"
-    t.bigint "courses_id", null: false
+    t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_departments_on_courses_id"
+    t.index ["admin_id"], name: "index_departments_on_admin_id"
   end
 
   create_table "staffs", force: :cascade do |t|
@@ -74,12 +76,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_173518) do
   end
 
   create_table "student_courses", force: :cascade do |t|
-    t.bigint "courses_id", null: false
-    t.bigint "students_id", null: false
+    t.bigint "course_id"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_student_courses_on_courses_id"
-    t.index ["students_id"], name: "index_student_courses_on_students_id"
+    t.index ["course_id"], name: "index_student_courses_on_course_id"
+    t.index ["student_id"], name: "index_student_courses_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_173518) do
     t.string "location"
     t.integer "phone_number"
     t.text "role", default: "student"
+    t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -96,13 +99,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_173518) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.index ["department_id"], name: "index_students_on_department_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "department_staffs", "departments", column: "departments_id"
-  add_foreign_key "department_staffs", "staffs", column: "staffs_id"
-  add_foreign_key "departments", "courses", column: "courses_id"
-  add_foreign_key "student_courses", "courses", column: "courses_id"
-  add_foreign_key "student_courses", "students", column: "students_id"
 end
