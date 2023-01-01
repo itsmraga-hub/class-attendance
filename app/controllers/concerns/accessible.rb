@@ -20,4 +20,15 @@ module Accessible
       redirect_to(authenticated_staff_dasshboard_path) and return
     end
   end
+
+  def authenticated!
+    # if current_staff
+    #   :authenticate_staff!
+    # elsif current_student
+    #   :authenticate_student!
+    # elsif current_admin
+    #   :authenticate_admin!
+    # end
+    :authenticate_admin! || :authenticate_staff! || :authenticate_student!
+  end
 end

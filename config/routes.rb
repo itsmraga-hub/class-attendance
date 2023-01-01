@@ -49,5 +49,5 @@ Rails.application.routes.draw do
   resources :departments
   resources :courses
 
-  root 'dashboards#index'
+  root 'courses#index'
 end
