@@ -1,8 +1,8 @@
+<% if current_student || current_staff || current_admin %>
 <p style="color: green"><%= notice %></p>
 
 <h1>Courses</h1>
 
-<% if current_student || current_staff || current_admin %>
 <div id="courses">
   <% @courses.each do |course| %>
     <%= render course %>
@@ -13,4 +13,6 @@
 </div>
 
 <%= link_to "New course", new_course_path %>
+<% else %>
+  <p>You need to login to see this</p>
 <% end %>
