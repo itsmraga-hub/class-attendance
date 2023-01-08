@@ -6,6 +6,7 @@ module Accessible
   end
 
   protected
+
   def check_user
     if current_admin
       flash.clear

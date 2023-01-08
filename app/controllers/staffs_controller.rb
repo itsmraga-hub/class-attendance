@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :set_staff, only: %i[ show edit update destroy ]
+  before_action :set_staff, only: %i[show edit update destroy]
 
   # GET /staffs or /staffs.json
   def index
@@ -7,8 +7,7 @@ class StaffsController < ApplicationController
   end
 
   # GET /staffs/1 or /staffs/1.json
-  def show
-  end
+  def show; end
 
   # GET /staffs/new
   def new
@@ -16,8 +15,7 @@ class StaffsController < ApplicationController
   end
 
   # GET /staffs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /staffs or /staffs.json
   def create
@@ -25,7 +23,7 @@ class StaffsController < ApplicationController
 
     respond_to do |format|
       if @staff.save
-        format.html { redirect_to staff_url(@staff), notice: "Staff was successfully created." }
+        format.html { redirect_to staff_url(@staff), notice: 'Staff was successfully created.' }
         format.json { render :show, status: :created, location: @staff }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class StaffsController < ApplicationController
   def update
     respond_to do |format|
       if @staff.update(staff_params)
-        format.html { redirect_to staff_url(@staff), notice: "Staff was successfully updated." }
+        format.html { redirect_to staff_url(@staff), notice: 'Staff was successfully updated.' }
         format.json { render :show, status: :ok, location: @staff }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class StaffsController < ApplicationController
     @staff.destroy
 
     respond_to do |format|
-      format.html { redirect_to staffs_url, notice: "Staff was successfully destroyed." }
+      format.html { redirect_to staffs_url, notice: 'Staff was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_staff
-      @staff = Staff.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def staff_params
-      params.require(:staff).permit(:name, :national_id, :staff_registration_number, :phone_number)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_staff
+    @staff = Staff.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def staff_params
+    params.require(:staff).permit(:name, :national_id, :staff_registration_number, :phone_number)
+  end
 end

@@ -1,5 +1,5 @@
 class StaffCoursesController < ApplicationController
-  before_action :set_staff_course, only: %i[ show edit update destroy ]
+  before_action :set_staff_course, only: %i[show edit update destroy]
 
   # GET /staff_courses or /staff_courses.json
   def index
@@ -7,8 +7,7 @@ class StaffCoursesController < ApplicationController
   end
 
   # GET /staff_courses/1 or /staff_courses/1.json
-  def show
-  end
+  def show; end
 
   # GET /staff_courses/new
   def new
@@ -16,8 +15,7 @@ class StaffCoursesController < ApplicationController
   end
 
   # GET /staff_courses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /staff_courses or /staff_courses.json
   def create
@@ -25,7 +23,7 @@ class StaffCoursesController < ApplicationController
 
     respond_to do |format|
       if @staff_course.save
-        format.html { redirect_to staff_course_url(@staff_course), notice: "Staff course was successfully created." }
+        format.html { redirect_to staff_course_url(@staff_course), notice: 'Staff course was successfully created.' }
         format.json { render :show, status: :created, location: @staff_course }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class StaffCoursesController < ApplicationController
   def update
     respond_to do |format|
       if @staff_course.update(staff_course_params)
-        format.html { redirect_to staff_course_url(@staff_course), notice: "Staff course was successfully updated." }
+        format.html { redirect_to staff_course_url(@staff_course), notice: 'Staff course was successfully updated.' }
         format.json { render :show, status: :ok, location: @staff_course }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class StaffCoursesController < ApplicationController
     @staff_course.destroy
 
     respond_to do |format|
-      format.html { redirect_to staff_courses_url, notice: "Staff course was successfully destroyed." }
+      format.html { redirect_to staff_courses_url, notice: 'Staff course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_staff_course
-      @staff_course = StaffCourse.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def staff_course_params
-      params.require(:staff_course).permit(:staff_id, :course_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_staff_course
+    @staff_course = StaffCourse.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def staff_course_params
+    params.require(:staff_course).permit(:staff_id, :course_id)
+  end
 end
