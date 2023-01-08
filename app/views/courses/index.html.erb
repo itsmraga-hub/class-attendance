@@ -2,6 +2,7 @@
 
 <h1>Courses</h1>
 
+<% if current_student || current_staff || current_admin %>
 <div id="courses">
   <% @courses.each do |course| %>
     <%= render course %>
@@ -10,5 +11,6 @@
     </p>
   <% end %>
 </div>
+<% end %>
 
 <%= link_to "New course", new_course_path %>
