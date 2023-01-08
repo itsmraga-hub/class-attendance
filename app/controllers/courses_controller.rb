@@ -1,11 +1,16 @@
 class CoursesController < ApplicationController
   include Accessible
-  before_action :check_user
+  before_action :check_user, only: %i[index]
   before_action :set_course, only: %i[ show edit update destroy ]
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+    if current_student
+      @courses = Course.all
+    else
+      @courses = []
+      # redirect_to root_path
+    end
   end
 
   # GET /courses/1 or /courses/1.json
