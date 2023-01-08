@@ -19,11 +19,12 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Student.count') do
       post students_url,
            params: { student: {
-            location: @student.location,
-            name: @student.name,
-            national_id: @student.national_id,
-            phone_number: @student.phone_number,
-            registration_number: @student.registration_number } }
+             location: @student.location,
+             name: @student.name,
+             national_id: @student.national_id,
+             phone_number: @student.phone_number,
+             registration_number: @student.registration_number
+           } }
     end
 
     assert_redirected_to student_url(Student.last)
@@ -46,7 +47,8 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
             name: @student.name,
             national_id: @student.national_id,
             phone_number: @student.phone_number,
-            registration_number: @student.registration_number } }
+            registration_number: @student.registration_number
+          } }
     assert_redirected_to student_url(@student)
   end
 
