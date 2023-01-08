@@ -9,11 +9,7 @@ Rails.application.routes.draw do
     # mailer: 'admins/mailers',
     # passwords: 'admins/passwords'
   }
-
-  # devise_scope :staffs do
-    # get 'staffs/sign_in'
-  # end
-
+  
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
     registrations: 'staffs/registrations',
