@@ -1,3 +1,4 @@
+<% if current_student || current_staff || current_admin %>
 <p style="color: green"><%= notice %></p>
 
 <%= render @course %>
@@ -8,3 +9,6 @@
 
   <%= button_to "Destroy this course", @course, method: :delete %>
 </div>
+<% else %>
+<p>Sign in to view more details</p>
+<% end %>
