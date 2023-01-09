@@ -1,3 +1,4 @@
+<% if current_admin %>
 <h1>New course</h1>
 
 <%= render "form", course: @course %>
@@ -7,3 +8,6 @@
 <div>
   <%= link_to "Back to courses", courses_path %>
 </div>
+<% else %>
+  <p>Only admins can add courses</p>
+<% end %>
