@@ -10,6 +10,8 @@ gem 'cancancan'
 
 gem 'devise'
 
+gem 'htmlbeautifier'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
