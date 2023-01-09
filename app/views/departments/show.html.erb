@@ -1,10 +1,20 @@
+<% if current_student || current_staff || current_admin %>
 <p style="color: green"><%= notice %></p>
 
 <%= render @department %>
 
+
+
 <div>
+  <% if current_admin %>
   <%= link_to "Edit this department", edit_department_path(@department) %> |
-  <%= link_to "Back to departments", departments_path %>
 
   <%= button_to "Destroy this department", @department, method: :delete %>
+  <% end %>
+  <%= link_to "Back to departments", departments_path %>
 </div>
+
+
+<% else %>
+  <p>Log in to view this</p>
+<% end %>
