@@ -1,3 +1,4 @@
+<% if current_admin %>
 <h1>New department</h1>
 
 <%= render "form", department: @department %>
@@ -7,3 +8,6 @@
 <div>
   <%= link_to "Back to departments", departments_path %>
 </div>
+<% else %>
+  <p>Only Admins can Add departments</p>
+<% end %>
