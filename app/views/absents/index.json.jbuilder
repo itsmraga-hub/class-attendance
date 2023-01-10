@@ -1,1 +1,1 @@
-json.array! @absents, partial: "absents/absent", as: :absent
+json.array! @absents, partial: 'absents/absent', as: :absent

@@ -1,1 +1,1 @@
-json.partial! "absents/absent", absent: @absent
+json.partial! 'absents/absent', absent: @absent
