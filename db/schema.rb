@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_01_215138) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_152117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "absents", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "subject_id", null: false
+    t.date "subject_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_absents_on_student_id"
+    t.index ["subject_id"], name: "index_absents_on_subject_id"
+  end
+
+  create_table "absents_students", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "absent_id", null: false
+  end
+
+  create_table "absents_subjects", id: false, force: :cascade do |t|
+    t.bigint "subject_id", null: false
+    t.bigint "absent_id", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.text "name"
@@ -56,6 +76,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_215138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_departments_on_admin_id"
+  end
+
+  create_table "presents", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "subject_id", null: false
+    t.date "subject_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_presents_on_student_id"
+    t.index ["subject_id"], name: "index_presents_on_subject_id"
+  end
+
+  create_table "presents_students", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "present_id", null: false
+  end
+
+  create_table "presents_subjects", id: false, force: :cascade do |t|
+    t.bigint "subject_id", null: false
+    t.bigint "present_id", null: false
   end
 
   create_table "staff_courses", force: :cascade do |t|
@@ -113,6 +153,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_215138) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  create_table "students_subjects", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "subject_id", null: false
+    t.index ["student_id", "subject_id"], name: "index_students_subjects_on_student_id_and_subject_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name"
+    t.bigint "course_id", null: false
+    t.bigint "staff_id", null: false
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_subjects_on_course_id"
+    t.index ["staff_id"], name: "index_subjects_on_staff_id"
+    t.index ["student_id"], name: "index_subjects_on_student_id"
+  end
+
+  add_foreign_key "absents", "students"
+  add_foreign_key "absents", "subjects"
+  add_foreign_key "presents", "students"
+  add_foreign_key "presents", "subjects"
   add_foreign_key "staff_courses", "courses"
   add_foreign_key "staff_courses", "staffs"
+  add_foreign_key "subjects", "courses"
+  add_foreign_key "subjects", "staffs"
+  add_foreign_key "subjects", "students"
 end
