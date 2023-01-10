@@ -1,1 +1,1 @@
-json.array! @subjects, partial: "subjects/subject", as: :subject
+json.array! @subjects, partial: 'subjects/subject', as: :subject
