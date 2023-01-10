@@ -4,4 +4,5 @@ class Course < ApplicationRecord
   has_many :staff, through: :staff_courses
   has_many :student_courses, dependent: :destroy
   has_many :students, through: :student_courses
+  has_many :subjects
 end

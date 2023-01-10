@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   get 'staff_dashboard/index', as: :authenticated_staff_dashboard
   get 'student_dashboard/index', as: :authenticated_student_dashboard
   get 'admin_dashboard/index', as: :authenticated_admin_dashboard
