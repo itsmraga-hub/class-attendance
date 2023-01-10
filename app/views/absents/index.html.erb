@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Absents</h1>
+
+<div id="absents">
+  <% @absents.each do |absent| %>
+    <%= render absent %>
+    <p>
+      <%= link_to "Show this absent", absent %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New absent", new_absent_path %>
