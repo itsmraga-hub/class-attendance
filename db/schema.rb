@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_152117) do
     t.text "name"
     t.integer "admin_id"
     t.integer "national_id"
+    t.integer "phone_number"
     t.integer "staff_id"
     t.text "role", default: "admin"
     t.datetime "created_at", null: false
