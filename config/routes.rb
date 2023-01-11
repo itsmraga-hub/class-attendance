@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'root/index'
   get 'staff_dashboard/index', as: :authenticated_staff_dashboard
   get 'student_dashboard/index', as: :authenticated_student_dashboard
   get 'admin_dashboard/index', as: :authenticated_admin_dashboard
@@ -42,14 +43,14 @@ Rails.application.routes.draw do
     # get 'dashboards#staff'
   end
 
-  resources :departments do
-    resources :courses do
-      resources :subjects do
-        resources :absents
-        resources :presents
-      end
+  resources :departments
+  
+  resources :courses do
+    resources :subjects do
+      resources :absents
+      resources :presents
     end
   end
 
-  root 'courses#index'
+  root 'root#index'
 end
