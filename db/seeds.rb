@@ -29,17 +29,17 @@ admins = Admin.create([
   },
 ])
 
-# staff = Staff.create([
-#   {
-#     name: 'Raga',
-#     email: 'raga@staff.com',
-#     national_id: 34113498,
-#     staff_registration_number: 100001,
-#     phone_number: 795600499,
-#     password: 'password',
-#     password_confirmation: 'password',
-#   },
-# ])
+staff = Staff.create([
+  {
+    name: 'Raga',
+    email: 'raga@staff.com',
+    national_id: 34113498,
+    staff_registration_number: 100001,
+    phone_number: 795600499,
+    password: 'password',
+    password_confirmation: 'password',
+  },
+])
 
 # departments = Department.create([
 #   {
