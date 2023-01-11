@@ -41,16 +41,16 @@ staff = Staff.create([
   },
 ])
 
-# departments = Department.create([
-#   {
-#     admin: admins[0],
-#     name: 'Department of Mathematics',
-#   },
-#   {
-#     admin: admins[1],
-#     name: 'Department of Computer Science',
-#   },
-# ])
+departments = Department.create([
+  {
+    admin: admins[0],
+    name: 'Department of Mathematics',
+  },
+  {
+    admin: admins[1],
+    name: 'Department of Computer Science',
+  },
+])
 
 # students = Student.create([
 #   {
