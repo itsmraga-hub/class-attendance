@@ -1,7 +1,12 @@
 <% if current_admin %>
   <section>
-  <h1>AdminDashboard#index</h1>
-  <p>Find me in app/views/admin_dashboard/index.html.erb</p>
+    <h2>Admin Dashboard</h2>
   </section>
-  
+  <section>
+    <h1>My Departments</h1>
+    <% @departments.each do |department| %>
+      <%= render department %>
+    <% end %>
+    <%= link_to 'Add New Department', new_department_path %>
+  </section>
 <% end %>
