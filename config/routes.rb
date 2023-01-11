@@ -42,12 +42,12 @@ Rails.application.routes.draw do
     # get 'dashboards#staff'
   end
 
-  resources :departments do
-    resources :courses do
-      resources :subjects do
-        resources :absents
-        resources :presents
-      end
+  resources :departments
+  
+  resources :courses do
+    resources :subjects do
+      resources :absents
+      resources :presents
     end
   end
 
