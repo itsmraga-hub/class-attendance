@@ -1,4 +1,10 @@
 <header>
+  <% unless staff_signed_in? || admin_signed_in? || student_signed_in? %>
+    <%= link_to "Sign In as Staff", new_staff_session_path %> |
+    <%= link_to "Sign In as Admin", new_admin_session_path %> |
+    <%= link_to "Sign In as Student", new_student_session_path %>
+  <% end %>
+
   <% if current_student %>
     <h2>Student: <%= current_student.name %></h2>
     <%= button_to 'Sign Out as Student', destroy_student_session_path, method: :delete %>
