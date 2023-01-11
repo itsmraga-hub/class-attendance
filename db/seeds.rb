@@ -65,29 +65,29 @@ students = Student.create([
   },
 ])
 
-# courses = Course.create([
-#   {
-#     name: 'Basic Mathematics',
-#     code: 'SMA 101',
-#     duration: '8 wks',
-#     department: departments[0],
-#   },
-#   {
-#     name: 'CALCULUS',
-#     code: 'SMA 202',
-#     duration: '8 wks',
-#     department: departments[0],
-#   },
-#   {
-#     name: 'HTML/CSS Basics',
-#     code: 'WEB 101',
-#     duration: '8 wks',
-#     department: departments[1],
-#   },
-#   {
-#     name: 'JavaScript',
-#     code: 'WEB 202',
-#     duration: '8 wks',
-#     department: departments[1],
-#   },
-# ])
+courses = Course.create([
+  {
+    name: 'Basic Mathematics',
+    code: 'SMA 101',
+    duration: '8 wks',
+    department: departments[0],
+  },
+  {
+    name: 'CALCULUS',
+    code: 'SMA 202',
+    duration: '8 wks',
+    department: departments[0],
+  },
+  {
+    name: 'HTML/CSS Basics',
+    code: 'WEB 101',
+    duration: '8 wks',
+    department: departments[1],
+  },
+  {
+    name: 'JavaScript',
+    code: 'WEB 202',
+    duration: '8 wks',
+    department: departments[1],
+  },
+])
