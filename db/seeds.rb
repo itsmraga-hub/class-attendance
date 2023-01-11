@@ -52,18 +52,18 @@ departments = Department.create([
   },
 ])
 
-# students = Student.create([
-#   {
-#     name: 'Esther Raga',
-#     email: 'raga@user.com',
-#     registration_number: 232116025,
-#     phone_number: 795895409,
-#     national_id: 34113497,
-#     password: 'password',
-#     password_confirmation: 'password',
-#     department: departments[0],
-#   },
-# ])
+students = Student.create([
+  {
+    name: 'Esther Raga',
+    email: 'raga@user.com',
+    registration_number: 232116025,
+    phone_number: 795895409,
+    national_id: 34113497,
+    password: 'password',
+    password_confirmation: 'password',
+    department: departments[0],
+  },
+])
 
 # courses = Course.create([
 #   {
