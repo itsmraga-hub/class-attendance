@@ -3,9 +3,7 @@ class DepartmentsController < ApplicationController
 
   # GET /departments or /departments.json
   def index
-    # if current_admin || current_staff || current_student
     @departments = Department.all
-    # end
   end
 
   # GET /departments/1 or /departments/1.json
@@ -21,7 +19,7 @@ class DepartmentsController < ApplicationController
 
   # POST /departments or /departments.json
   def create
-    @department = Department.new(department_params)
+    @department = Department.new(admin: current_admin, **department_params)
 
     respond_to do |format|
       if @department.save
