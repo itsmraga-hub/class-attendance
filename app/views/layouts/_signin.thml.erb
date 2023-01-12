@@ -1,7 +1,0 @@
-<div>
-  <% unless staff_signed_in? || admin_signed_in? || student_signed_in? %>
-    <%= link_to "Sign In as Staff", new_staff_session_path %> |
-    <%= link_to "Sign In as Admin", new_admin_session_path %> |
-    <%= link_to "Sign In as Student", new_student_session_path %>
-  <% end %>
-</div>
