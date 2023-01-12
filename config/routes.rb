@@ -26,9 +26,11 @@ Rails.application.routes.draw do
     # passwords: 'students/passwords'
   }
 
-  resources :departments do
-    resources :courses do
-      resources :subjects
+  resources :admins do
+    resources :departments do
+      resources :courses do
+        resources :subjects
+      end
     end
   end
 
