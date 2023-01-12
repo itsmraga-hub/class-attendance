@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'root/index'
-  get 'staff_dashboard/index', as: :authenticated_staff_dashboard
-  get 'student_dashboard/index', as: :authenticated_student_dashboard
-  get 'admin_dashboard/index', as: :authenticated_admin_dashboard
+  get 'dashboards/student_dashboard', as: :authenticated_student_dashboard
+  get 'dashboards/staff_dashboard', as: :authenticated_staff_dashboard
+  get 'dashboards/admin_dashboard', as: :authenticated_admin_dashboard
+
   devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations',
@@ -26,27 +26,18 @@ Rails.application.routes.draw do
     # passwords: 'students/passwords'
   }
 
-  # resources :courses
-
-  authenticated :admin do
-    resources :dashboards
-    # get 'dashboards#admin'
+  resources :admins do
+    resources :departments do
+      resources :courses do
+        resources :subjects
+      end
+    end
   end
 
-  authenticated :student do
-    resources :dashboards, only: [:student]
-    # get 'dashboards#student'
-  end
-
-  authenticated :staff do
-    resources :dashboards, only: [:staff, :student]
-    # get 'dashboards#staff'
-  end
-
-  resources :departments
+  resources :departments, only: [:index, :show]
   
-  resources :courses do
-    resources :subjects do
+  resources :courses, only: [:index, :show] do
+    resources :subjects, only: [:index, :show] do
       resources :absents
       resources :presents
     end

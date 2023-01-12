@@ -3,5 +3,5 @@
     <strong>Name:</strong>
     <%= department.name %>
   </p>
-  <%= link_to 'See more', department_path(department) %>
+  <%= link_to 'See more', admin_department_path(current_admin, department) %>
 </div>

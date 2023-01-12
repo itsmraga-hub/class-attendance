@@ -7,6 +7,7 @@
     <% @departments.each do |department| %>
       <%= render department %>
     <% end %>
-    <%= link_to 'Add New Department', new_department_path %>
+    <%= link_to 'Add New Department', new_admin_department_path(current_admin)%>
   </section>
+  <section></section>
 <% end %>
