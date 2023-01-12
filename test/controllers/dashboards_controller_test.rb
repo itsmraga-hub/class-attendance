@@ -1,18 +1,18 @@
-require 'test_helper'
+require "test_helper"
 
 class DashboardsControllerTest < ActionDispatch::IntegrationTest
-  test 'should get admin' do
-    get dashboards_admin_url
+  test "should get student_dashboard" do
+    get dashboards_student_dashboard_url
     assert_response :success
   end
 
-  test 'should get staff' do
-    get dashboards_staff_url
+  test "should get staff_dashboard" do
+    get dashboards_staff_dashboard_url
     assert_response :success
   end
 
-  test 'should get student' do
-    get dashboards_student_url
+  test "should get admin_dashboard" do
+    get dashboards_admin_dashboard_url
     assert_response :success
   end
 end
