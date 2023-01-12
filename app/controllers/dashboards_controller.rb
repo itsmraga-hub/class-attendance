@@ -1,9 +1,7 @@
 class DashboardsController < ApplicationController
-  def student_dashboard
-  end
+  def student_dashboard; end
 
-  def staff_dashboard
-  end
+  def staff_dashboard; end
 
   def admin_dashboard
     # @admin = current_admin
