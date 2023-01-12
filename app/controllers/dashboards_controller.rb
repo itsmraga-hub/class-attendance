@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
   end
 
   def admin_dashboard
+    # @admin = current_admin
     @departments = Department.all.where(admin: current_admin)
   end
 end
