@@ -51,6 +51,11 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[attribute image name phone_number staff_registration_number national_id])
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   root_path
