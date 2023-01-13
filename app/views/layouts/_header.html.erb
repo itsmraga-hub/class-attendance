@@ -1,12 +1,12 @@
 <div>
   <% if current_student %>
-    <h2>Welcome, <%= current_student.name %></h2>
+    <%= render 'students/student', admin: current_student %>
     <%= button_to 'Sign Out as Student', destroy_student_session_path, method: :delete %>
   <% elsif current_staff %>
-    <h2>Welcome, <%= current_staff.name if current_staff %></h2>
+    <%= render 'staffs/staff', admin: current_staff %>
     <%= button_to 'Sign Out as Staff', destroy_staff_session_path, method: :delete %>
   <% elsif current_admin %>
-    <h2>Welcome, <%= current_admin.name if current_admin %></h2>
+    <%= render 'admins/admin', admin: current_admin %>
     <%= button_to 'Sign Out as Admin', destroy_admin_session_path, method: :delete %>
   <% end %>
 </div>
