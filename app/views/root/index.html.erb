@@ -2,3 +2,12 @@
   <h1>Home page</h1>
   <%= render 'layouts/signin' %>
 </section>
+<section>
+  <% if current_admin %>
+    <%= link_to 'View Dashboard', authenticated_admin_dashboard_path %>
+  <% elsif current_staff %>
+    <%= link_to 'View Dashboard', authenticated_staff_dashboard_path %>
+  <% elsif current_student %>
+    <%= link_to 'View Dashboard', authenticated_student_dashboard_path %>
+  <% end %>
+</section>
