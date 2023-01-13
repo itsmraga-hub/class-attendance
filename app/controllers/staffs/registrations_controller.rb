@@ -1,6 +1,6 @@
 class Staffs::RegistrationsController < Devise::RegistrationsController
   include Accessible
-  skip_before_action :check_user, except: %i[new create]
+  # skip_before_action :check_user, except: %i[new create]
   # skip_before_action :check_resource, except: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -50,6 +50,11 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[attribute image name phone_number staff_registration_number national_id])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
