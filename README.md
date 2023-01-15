@@ -29,7 +29,7 @@ After you're finished please remove all the comments and instructions!
 
   <h3><b>Classlist attendance system</b></h3>
 
-  ![screenshot](./class_attendance_database.png)
+  ![screenshot](./class_attendance.png)
 
 </div>
 
