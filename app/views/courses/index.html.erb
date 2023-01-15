@@ -9,7 +9,7 @@
       </p>
     <% end %>
   </div>
-  <%= link_to "New course", new_course_path %>
+  <%= link_to "New course", new_admin_course_path(current_admin) %>
 <% else %>
   <p>You need to login to see this</p>
 <% end %>

@@ -1,9 +1,9 @@
 <div>
   <% if current_student %>
-    <%= render 'students/student', admin: current_student %>
+    <%= render 'students/student', student: current_student %>
     <%= button_to 'Sign Out as Student', destroy_student_session_path, method: :delete %>
   <% elsif current_staff %>
-    <%= render 'staffs/staff', admin: current_staff %>
+    <%= render 'staffs/staff', staff: current_staff %>
     <%= button_to 'Sign Out as Staff', destroy_staff_session_path, method: :delete %>
   <% elsif current_admin %>
     <%= render 'admins/admin', admin: current_admin %>

@@ -9,5 +9,13 @@
     <% end %>
     <%= link_to 'Add New Department', new_admin_department_path(current_admin)%>
   </section>
-  <section></section>
+  <section>
+    <%= link_to 'Students', students_path %>
+  </section>
+    <section>
+    <%= link_to 'Departments', departments_path %>
+  </section>
+    <section>
+    <%= link_to 'Courses', courses_path %>
+  </section>
 <% end %>
