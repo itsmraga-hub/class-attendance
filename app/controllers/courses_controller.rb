@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
+    # @departments = Department.all
     @course = Course.new
   end
 

@@ -5,18 +5,12 @@ Rails.application.routes.draw do
 
   devise_for :admins, path: 'admins', controllers: {
     sessions: 'admins/sessions',
-    registrations: 'admins/registrations',
-    # confirmations: 'admins/confirmations',
-    # mailer: 'admins/mailers',
-    # passwords: 'admins/passwords'
+    registrations: 'admins/registrations'
   }
   
   devise_for :staffs, path: 'staffs', controllers: {
     sessions: 'staffs/sessions',
-    registrations: 'staffs/registrations',
-    # confirmations: 'staffs/confirmations',
-    # mailer: 'staffs/mailers',
-    # passwords: 'staffs/passwords'
+    registrations: 'staffs/registrations'
   }
   devise_for :students, path: 'students', controllers: {
     sessions: 'students/sessions',
