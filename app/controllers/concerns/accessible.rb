@@ -18,7 +18,7 @@ module Accessible
       redirect_to(authenticated_student_dashboard_path) and return
     elsif current_staff
       flash.clear
-      redirect_to(authenticated_staff_dasshboard_path) and return
+      redirect_to(authenticated_staff_dashboard_path) and return
     end
   end
 
