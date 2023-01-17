@@ -26,6 +26,12 @@
     <%= form.number_field :duration %>
   </div>
 
+    <div>
+    <%= form.label :department, style: "display: block" %>
+    <%# collection_select(:department, :department_id, current_admin.departments, :id, :name, {}, { multiple: :true}) %>
+    <%= form.select :department_id, current_admin.departments.collect { |d| [d.name, d.id] }, include_blank: 'Select Department'%>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
