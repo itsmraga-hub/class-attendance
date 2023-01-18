@@ -10,4 +10,18 @@ class Student < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  
+  def self.search(search)
+    if search
+      student = Student.find_by(name: search)
+      if student
+        self.where(student_id: student)
+      else
+        Student.all
+      end
+    else
+      Student.all
+    end
+  end
 end
