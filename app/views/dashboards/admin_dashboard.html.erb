@@ -3,6 +3,15 @@
     <h2>Admin Dashboard</h2>
   </section>
   <section>
+    <%= form_tag(authenticated_admin_dashboard_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+    <% @students.each do |student| %>
+      <%= render student %>
+    <% end %>
+  </section>
+  <section>
     <h1>My Departments</h1>
     <% @departments.each do |department| %>
       <%= render department %>
